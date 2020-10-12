@@ -3,7 +3,10 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 
 export default function Movie(props) {
+  
   const [movie, setMovie] = useState();
+  const { addToSavedList } = props;
+
 
 
 
@@ -27,13 +30,17 @@ export default function Movie(props) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = evt => {
+    addToSavedList(id);
+    console.log('tezt')
+   }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
   const { title, director, metascore, stars } = movie;
+
 
   return (
     <div className="save-wrapper">
@@ -53,7 +60,7 @@ export default function Movie(props) {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={saveMovie}>Save</div>
     </div>
   );
 }
