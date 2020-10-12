@@ -7,8 +7,8 @@ import App from "./App";
 
 // You'll need to wrap <App /> for routing to work
 ReactDOM.render(
-  <ReactRouter>
+  <BrowserRouter>
     <App />
-  </ReactRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
